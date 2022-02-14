@@ -1,0 +1,23 @@
+<div class="card" *ngIf="name && ocupation && bio; else mainContent">
+  <div class="card-content">
+    <div class="card-header">
+      <h2>{{name}}</h2>
+    </div>
+    <div>
+    <p> <b>Profesión:</b> {{ocupation}}</p>
+    <p> <b>Bio</b>: {{bio}}</p>
+    </div>
+  </div>
+</div>
+<ng-template #mainContent>
+  <div class="card opcional">
+      <div class="card-content">
+        <div class="card-header">
+          No encontrado
+        </div>
+        <p>
+         <b>No se proporcionó ninguna información</b>
+        </p>
+      </div>
+  </div>
+</ng-template>
