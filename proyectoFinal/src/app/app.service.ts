@@ -48,7 +48,6 @@ export class AppService {
   }
 
   public saveTransaction(){
-    // this.form.get('type')?.setValue(type);
     console.log(this.form.value);
 
     const trans: Transactions = {

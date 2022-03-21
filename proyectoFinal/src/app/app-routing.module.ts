@@ -6,10 +6,6 @@ const routes: Routes = [
     path: 'transacciones',
     loadChildren: () => import('./transaction/transaction.module').then( m => m.TransactionModule)
   },
-  {
-    path: 'importes',
-    loadChildren: () => import('./billing/billing.module').then( m => m.BillingModule)
-  }
 ];
 
 @NgModule({

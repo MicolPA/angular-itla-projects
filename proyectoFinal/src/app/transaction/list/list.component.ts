@@ -8,9 +8,12 @@ import { AppService } from '../../app.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private AppService: AppService) { }
+  constructor(public appService: AppService) { }
 
   ngOnInit(): void {
+
+    // this.appService.getTransactions();
+
   }
 
 }
