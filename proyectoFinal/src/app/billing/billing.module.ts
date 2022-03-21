@@ -4,6 +4,7 @@ import { IncomeComponent } from './income/income.component';
 import { OutcomeComponent } from './outcome/outcome.component';
 import { Routes, RouterModule } from '@angular/router';
 import { BillingService } from './services/billing.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
 
@@ -30,7 +31,9 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     BillingService
