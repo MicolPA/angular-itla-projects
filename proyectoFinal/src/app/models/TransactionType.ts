@@ -1,4 +1,3 @@
-export enum TransactionType{
-  GASTO = "GASTO",
-  INGRESO = "INGRESO"
+export interface TransactionType{
+  name: string
 }

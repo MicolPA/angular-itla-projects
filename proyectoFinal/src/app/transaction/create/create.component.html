@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="this.appService.form">
+        <!-- <div class="form-group">
+          <label for="amountInput">Tipo</label>
+          <select class="form-control">
+            <option value="">Seleccionar...</option>
+          </select>
+        </div> -->
+        <div class="form-group">
+          <label for="amountInput">Tipo</label>
+          <select formControlName="type" class="form-control">
+            <option value="">Seleccionar...</option>
+            <option *ngFor="let type of transactionType" [value]="type">{{ type.name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amountInput">Concepto</label>
+          <select formControlName="concept" class="form-control">
+            <option value="">Seleccionar...</option>
+            <option *ngFor="let concept of concepts" [value]="concept">{{ concept.name }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="amountInput">Monto</label>
+          <input formControlName="amount" type="number" name="amount" class="form-control" id="amountInput">
+        </div>
+        <div class="form-group">
+          <label for="dateInput">Fecha</label>
+          <input formControlName="date" type="date" name="date" class="form-control" id="dateInput">
+        </div>
+        <div class="form-group text-right">
+          <input (click)="save()" class="btn btn-primary" type="submit" value="Guardar">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

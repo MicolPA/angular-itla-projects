@@ -22,6 +22,7 @@ const routes: Routes = [
     path: 'gastos', component: OutcomeComponent,
   }
 
+
 ]
 
 @NgModule({

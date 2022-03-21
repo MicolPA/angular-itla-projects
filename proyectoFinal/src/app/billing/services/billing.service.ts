@@ -30,8 +30,9 @@ export class BillingService {
 
   }
 
-  public saveTransaction(type: TransactionType){
-    this.form.get('type')?.setValue(type);
+  // public saveTransaction(type: TransactionType){
+    public saveTransaction(){
+    // this.form.get('type')?.setValue(type);
     console.log(this.form);
   }
 

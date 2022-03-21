@@ -19,7 +19,7 @@ export class OutcomeComponent implements OnInit {
   }
 
   save(){
-    this.billingService.saveTransaction(TransactionType.GASTO);
+    this.billingService.saveTransaction();
   }
 
 }
