@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Transactions } from './models/Transactions';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TransactionConcept } from './models/TransactionConcept';
 import { TransactionType } from './models/TransactionType';
 
@@ -21,6 +21,9 @@ export class AppService {
   ];
   public concepts: TransactionConcept[] = [
     {
+      name: "Salario"
+    },
+    {
       name: "Comida"
     },
     {
@@ -32,10 +35,10 @@ export class AppService {
   ]
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
-      concept: [''],
-      amount: [''],
-      date: [''],
-      type: []
+      concept: [, [Validators.required]],
+      amount: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      type: [, [Validators.required]],
     });
   }
 
@@ -43,20 +46,33 @@ export class AppService {
     this.transaction.push(trans);
   }
 
-  public getTransactions(){
-    return this.transaction;
+  public getTransactions(type=null){
+    if(type){
+      return this.transaction.filter( t => t.type === type)
+    }else{
+      return this.transaction;
+    }
   }
 
   public saveTransaction(){
     console.log(this.form.value);
 
-    const trans: Transactions = {
-      concept: this.form.get('concept')?.value,
-      amount: this.form.get('amount')?.value,
-      date: this.form.get('date')?.value,
-      type: this.form.get('type')?.value,
+    if (this.form.valid) {
+      const trans: Transactions = {
+        concept: this.form.get('concept')?.value,
+        amount: this.form.get('amount')?.value,
+        date: this.form.get('date')?.value,
+        type: this.form.get('type')?.value,
+      }
+
+      this.addTransaction(trans);
+      this.form.reset();
+    }else {
+      this.form.markAllAsTouched()
     }
-    this.addTransaction(trans);
+
+
+
     console.log(this.transaction);
   }
 
